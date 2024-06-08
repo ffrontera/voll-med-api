@@ -16,7 +16,7 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             m.especialidad = :especialidad and
             m.id not in(
             select c.medico.id from Consulta c
-            c.datos = :fecha
+            where c.datos = :fecha
             )
             order by rand()
             limit 1
