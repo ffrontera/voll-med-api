@@ -27,6 +27,7 @@ public class SecurityConfiguration {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
                 //.requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("ADMIN") esta linea de codigo es para darle permisos
                 //.requestMatchers(HttpMethod.DELETE, "/pacientes").hasRole("ADMIN") a quien tenga el rol admin para eliminar pacientes y medicos.
                 .anyRequest().authenticated()
